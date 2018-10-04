@@ -65,7 +65,7 @@ def primecheckrange(startnum,numtotest=10000):
         print("Candidate", i , end="", flush=True)
         result = is_prime(n)
         i += 1
-        print("checked:",result)
+        print(" checked:",result)
         if result:
             return n
     else:

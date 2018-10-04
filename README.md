@@ -41,7 +41,7 @@ PrimeImage was written as a Python 3 project,
 for Python 2 I have not tested and cannot guarantee it'll work, due to the use of iterators.
 
 To immediately jump in and have fun, run from terminal `python3 primeimage -u`, which will load a test image
-(my College's crest) and generate a prime that looks like it (should occur on the 111th candiate!).
+([my College](https://www.univ.ox.ac.uk/)'s crest) and generate a prime that looks like it (should occur on the 111th candiate!).
 
 To load an arbitary image (at the moment the image should be square!), run `python3 -i ~/path/to/image`.
 Most common formats (.png, .jpg, .bmp etc) are supported.
