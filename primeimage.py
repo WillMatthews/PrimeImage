@@ -5,7 +5,7 @@ from scipy import misc
 import numpy as np
 import time
 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 import getopt
 import sys
@@ -62,7 +62,7 @@ def primecheckrange(startnum,numtotest=10000):
 
     # test odd numbers in the range specified
     for n in range(startnum,startnum+numtotest,2):
-        print("Candidate", i , " ", end="", flush=True)
+        print("Candidate", i , end="", flush=True)
         result = is_prime(n)
         i += 1
         print("checked:",result)
@@ -176,7 +176,7 @@ def main(argv):
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print("\nprimeimage.py -h -i <inputfile> -u \n\n -h :  prints help \n -i : input file \n -u : print Univ Crest")
+            print("\nprimeimage.py -h -i <inputfile> -u \n\n -h :  prints help \n -i : input file \n -u : load University College crest")
             sys.exit()
         elif opt in ("-u","--univ"):
             useuniv = True
@@ -189,7 +189,7 @@ def main(argv):
     else:
         # if we have a path to work with
         if path:
-            bimage, size = get_image(path)
+            bimage, size = get_image(path,size_x=25,size_y=50)
             imagenum = get_imagenum(bimage)
         else:
             print("No Image Specified!")
