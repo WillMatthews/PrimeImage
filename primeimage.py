@@ -11,8 +11,6 @@ import getopt
 import sys
 
 
-useuniv = False
-
 
 def _try_composite(a, d, n, s):
     if pow(a, d, n) == 1:
@@ -89,13 +87,14 @@ def to_imagenum(pixel, white=1, black=8):
 
 
 def get_image(path,size_y=25,size_x=50,autoaspect=True):
-    """Given the path of an image, function reads image, resizes, and returns a binary image"""
+    """Given the path of an image, function reads image, resizes, and returns a binary image with dimensions in a tuple"""
     # read image
     f = misc.imread(path, mode='L') # read as greyscale
     
     if autoaspect:
         # get aspect ratio, y/x
         ar = len(f)/len(f[0])
+        pass # feature not yet implemented
 
     f = misc.imresize(f,(size_y, size_x),interp='bilinear') # resize as a 25 x 50
     bw = to_binary(f,150,210)
@@ -159,10 +158,8 @@ def univcrest():
 
 
 # build list of prime numbers for primality test to use
-print("Building primes list")
 _known_primes = [2, 3]
 _known_primes += [x for x in range(5, 1000, 2) if is_prime(x)]
-print("Done!")
 
 
 
