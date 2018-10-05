@@ -81,9 +81,9 @@ def to_binary(img, lower, upper):
 def to_imagenum(pixel, white=1, black=8):
     """Converts Boolean pixel to an integer"""
     if pixel:
-        return black
-    else:
         return white
+    else:
+        return black
 
 
 def get_image(path,size_y=25,size_x=50,autoaspect=True):
@@ -97,7 +97,7 @@ def get_image(path,size_y=25,size_x=50,autoaspect=True):
         pass # feature not yet implemented
 
     f = misc.imresize(f,(size_y, size_x),interp='bilinear') # resize as a 25 x 50
-    bw = to_binary(f,150,210)
+    bw = to_binary(f,150,256)
     return (bw,(size_y, size_x))
 
 
@@ -127,7 +127,7 @@ def univcrest():
         11111111111111111111118888881111111111111111111111
         11111888811111111111118888881118888111111111111111
         11111188881111111111118888881111888811111111111111
-        11111188888881111111118888881111888888811111111111
+        11111188888888111111118888881111888888811111111111
         11111118811188881111118888881111881118888111111111
         11111111188888888881118888881111118888888888111111
         11111111111888111881118888881111111188811188111111
@@ -189,7 +189,7 @@ def main(argv):
     else:
         # if we have a path to work with
         if path:
-            bimage, size = get_image(path,size_x=25,size_y=50)
+            bimage, size = get_image(path,size_x=50,size_y=25)
             imagenum = get_imagenum(bimage)
         else:
             print("No Image Specified!")
