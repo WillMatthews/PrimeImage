@@ -86,7 +86,6 @@ def get_image(path,size_y=25,size_x=50,autoaspect=True):
         pass # feature not yet implemented
 
     f = misc.imresize(f,(size_y, size_x),interp='bilinear') # resize as a 25 x 50
-    #bw = to_binary(f,150,256)
     return (f,(size_y, size_x))
 
 

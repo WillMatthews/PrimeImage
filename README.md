@@ -50,6 +50,9 @@ Help can be loaded by using the `-h` flag.
 
 
 ## Limitations (and todos!)
+1. Histogram Equalisation is REQUIRED to make the distribution of numbers fair.
+1. Subtle number abberation to force primality is required.
+1. A 'force Binary' option may be useful.
 1. For the moment the images are small, on the order of 25 x 50 pixels.
    + if you insist on a larger image you can change the `size_x` and `size_y` on the function call on line 192. 
 1. The y dimension has a lower spatial resolution (half of x dimension) due to the use of monospaced integers.
@@ -72,30 +75,6 @@ PrimeImage needs the following packages:
 
 ## Theory
 
-### Image processing
-Images are read as a greyscale, then downsampled (using bilinear interpolation) into a much smaller image (on the order of 25x50 pixelsi, 1250 in total).
+A blog post was written on the theory, [here](http://willmatthews.xyz/posts/prime-number-images/)
 
-The downsampled image is then passed through a filter.
-This filter observes if each pixel falls within a set bound,
-and if it does it sets it as a Boolean True, else it sets the pixel as a Boolean False.
 
-The image we now have is a *binary image*, and this is the basis for making an image out of numbers.
-
-We begin by collapsing the two dimensional image into a one dimensional list of booleans.
-This list is then fed into a for loop, which for each boolean appends a 1 (False) or an 8 (True) into a separate list.
-That separate list of ints is concatenated together into a single integer, which we call `imagenum`.
-
-### Prime Finding
-`imagenum` is then fed to a prime number finding function,
-which runs a loop incrementing `imagenum` by two (keeping it odd),
-and then running a primality test on it.
-When a prime is found,
-the loop is broken and the number stored.
-
-The primality test is surprisingly the hardest part of this problem, the image is of the order of 1250 digits long - prime numbers of this size were only found in the 1960s using Cambridge's EDSAC computer.
-
-Although we may arrogantly believe our hefty laptops of the current day would wipe the floor with a delay storage based computer (from the 1950s!), we can't even remotely begin to check this number is prime without a nontrivial primality test.
-
-Enter the Miller-Rabin primality test.
-
-To Be Continued...
